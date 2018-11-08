@@ -4,46 +4,77 @@
  * construct available in Javascript.
  */
 
-// ...
+const max = (x, y) => {
+  if (x > y) {
+    return x
+  } else return y
+}
 
 /**
  * Define a function maxOfThree() that takes three
  * numbers as arguments and returns the largest of them.
  */
 
-// ...
-
+const maxOfThree = (number1, number2, number3) => {
+  if (number1 > number2 && number1 > number3) {
+    return number1
+  } else if (number2 > number3) {
+    return number2
+  }
+  return number3
+}
 /*
  * Define a function sum() that takes two numbers as
  * arguments and computes the sum of those two numbers.
  */
 
-// ...
+const sum = (x, y) => x + y
 
 /*
  * Define a function sumOfArray that calculates the sum of
  * all the numbers in an array.
  */
 
-// ...
+const sumOfArray = (array) => {
+  let total = 0
+  array.forEach((number) => total += number)
+  return total
+}
 
 /**
  * Write a function isVowel() that takes a character (i.e. a string of length 1)
  * and returns true if it is a vowel, false otherwise.
  */
 
-// ...
+const isVowel = (letter) => {
+  return /[aeiou]/i.test(letter)
+}
 
- /**
-  * Write a function rovarspraket() that will translate
-  * a text into a "rövarspråket". That is, double every
-  * consonant and place an occurrence of "o" in between.
-  *
-  * For example, rovarspraket("this is fun") should
-  * return the string "tothohisos isos fofunon".
-  */
+/**
+ * Write a function rovarspraket() that will translate
+ * a text into a "rövarspråket". That is, double every
+ * consonant and place an occurrence of "o" in between.
+ *
+ * For example, rovarspraket("this is fun") should
+ * return the string "tothohisos isos fofunon".
+ */
 
-// ...
+const rovarspraket = (string) => {
+  // loop thru every letter in an string
+  if (string === 0) {
+    return string.toString()
+  }
+  let letters = [...string]
+  let rovarLetters = []
+  letters.forEach((letter) => {
+    if (!/[aeiou\d]/i.test(letter)) {
+      rovarLetters.push(letter, 'o', letter)
+    } else {
+      rovarLetters.push(letter)
+    }
+  })
+  return rovarLetters.join("")
+}
 
 /**
  * Define a function reverse() that computes
@@ -52,16 +83,32 @@
  * string "books".
  */
 
-// ...
+const reverse = (string) => {
+  let reversed = [...string].reverse()
+  return reversed.join("")
+}
 
- /**
-  * Write a function findLongestWord() that takes an
-  * string returns the first, longest word in the array.
-  *
-  * i.e. findLongestWord("book dogs") should return "book"
-  */
+/**
+ * Write a function findLongestWord() that takes an
+ * string returns the first, longest word in the array.
+ *
+ * i.e. findLongestWord("book dogs") should return "books"
+ */
 
-// ...
+const findLongestWord = (string) => {
+  // split string by spaces
+  // sort all words by order of length
+  let words = string.split(' ')
+  words.sort((a, b) => a.length - b.length)
+  let longestWord = words[words.length - 1]
+  // get the length of every word
+  // find length of last word
+  return words.find((word) => word.length === longestWord.length)
+  // go over the array and return the 1st word matching the length of longest word
+
+  // get all words that are that length
+  // return the 1st of those words
+}
 
 /**
  * NOTE: Don't modify anything below this line...
